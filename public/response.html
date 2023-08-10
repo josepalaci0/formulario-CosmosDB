@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    
+    #response-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .message-box {
+      border-bottom: 1px solid #ccc;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+    }
+
+    .message-box:last-child {
+      border-bottom: none;
+    }
+
+    .message-box:hover {
+      background-color: #f7f7f7;
+    }
+
+    .message-details {
+      flex: 1;
+    }
+
+    .message-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .message-email {
+      font-size: 0.9em;
+      color: #777;
+      margin-bottom: 10px;
+    }
+    
+    .message-content {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Buzón de Entrada</h1>
+  <div id="response-container">
+    <!-- Aquí se mostrarán las cajas de mensajes -->
+  </div>
+
+
+  <script>
+    async function fetchData() {
+      try {
+        const response = await fetch('/messages');
+        if (!response.ok) {
+          throw new Error('Error al obtener los datos.');
+        }
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    }
+
+    async function displayData() {
+      try {
+        const responseData = await fetchData();
+        const responseContainer = document.getElementById('response-container');
+
+        responseData.map(messageObj => {
+          const message = messageObj.data;
+
+          const messageBox = document.createElement('div');
+          messageBox.classList.add('message-box');
+          
+          const messageDetails = document.createElement('div');
+          messageDetails.classList.add('message-details');
+
+          const nameElement = document.createElement('div');
+          nameElement.textContent = message.name;
+          nameElement.classList.add('message-name');
+
+          const emailElement = document.createElement('div');
+          emailElement.textContent = message.email;
+          emailElement.classList.add('message-email');
+
+          const messageElement = document.createElement('div');
+          messageElement.textContent = message.message;
+          messageElement.classList.add('message-content');
+
+          messageDetails.appendChild(nameElement);
+          messageDetails.appendChild(emailElement);
+          messageDetails.appendChild(messageElement);
+          
+          messageBox.appendChild(messageDetails);
+          responseContainer.appendChild(messageBox);
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    // Llama a la función para mostrar los datos cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', () => {
+      displayData();
+    });
+  </script>
+</body>
+</html>
