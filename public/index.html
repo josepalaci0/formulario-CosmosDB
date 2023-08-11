@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="styles.css">
   <title>Formulario de Contacto</title>
 </head>
+
 <body>
+  
+
+
+
+
+
   <div class="container">
-    <h1>Buson de Entrada</h1>
-    <form id="contact-form" action="/submit" method="POST">
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name" required>
 
-      <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" required>
+    <h2 class="display">Enviar un Mensaje..</h2>
+    <div class="hidden-content">
+      <div class="service">
+        <form id="contact-form" action="/submit" method="POST">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required>
 
-      <label for="message">Mensaje:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required>
 
-      <button type="submit">Enviar</button>
-    </form>
+          <label for="message">Mensaje:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+    </div>
   </div>
-  <div class="container">
-    <h1>Siguientes Modulos html</h1>
-  </div>
-  <script>
+  
+<script src="./script.js"></script>
 
-  document.getElementById('contact-form').addEventListener('submit', async (event) => {
-    
-    const formData = new FormData(event.target);
-    const response = await fetch('/submit', {
-      method: 'POST',
-      body: formData,
-    });
-    const result = await response.json();
-    console.log(result); // Puedes mostrar la respuesta en la consola o en algún elemento HTML
-  });
-</script>
+  
+
 
 </body>
+
 </html>

@@ -1,58 +1,335 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #b4b4b4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.container:hover {
+  box-shadow: 0 2px 4px rgba(21, 2, 65, 0.685);
+}
+
+h1 {  
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input {
+  width: 98%;
+  padding: 0.5em;
+  margin-bottom: 10px;
+  border: 1px solid #07224be0;
+  border-radius: 3px;
+  background-color: rgb(194, 194, 194);
+}
+
+input:hover {
+  border: 1px solid #1f4704e5;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.1em;
+  margin-bottom: 1em;
+  border: 1px solid #07224be0;
+  border-radius: 5px;
+  background-color: rgb(255, 254, 254);
+
+}
+
+
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #333333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #292929;
+}
+
+@media (max-width: 768px) {
   .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    padding: 1em;
+  }
+}
+
+button[type="submit"]:hover {
+  background-color: #292929;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.service {
+  border: 1px solid #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  background-color: rgb(255, 254, 254);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service:hover {
+  border-color: rgb(4, 7, 185);
+
+}
+
+.service h2 {
+  margin-top: 0;
+}
+.service p{
+  font-size: 20px;
+}
+
+
+.project img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1em;
+  }
+}
+
+.hidden-content {
+  display: block;
+}
+
+.hidden-content-coment {
+  display: none;
+}
+
+/* Estilos para el formulario */
+#comment-form {
+  width: 100%;
+  padding: auto;
+
+}
+
+.container-form {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+
+
+}
+
+.left-container {
+  width: 78%;
+  padding: 1px;
+
+
+}
+
+.right-container {
+  width: 22%;
+  padding: 1px;
+  margin-left: 10px;
+  box-sizing: border-box;
+
+}
+
+/* Estilos para el textarea */
+
+.comment {
+  width: 100%;
+  padding: 0.1em;
+  margin-bottom: 10px;
+  border: 1px solid #07224be0;
+  border-radius: 3px;
+
+}
+
+/* Estilo para el h4 al hacer clic */
+.display-comment.clicked {
+  color: red;
+}
+
+/* Estilos generales del footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilos para el contenido del footer */
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Cambio de color al pasar el ratón */
+.footer a {
+  color: #fff;
+}
+
+.footer a:hover {
+  color: #f0f0f0;
+}
+
+.galery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;    
+}
+.box-container {
+  display: flex;  
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;  
+  border-radius: 3px;
+  border: 0px solid #ddd;  
+  
+}
+.box-container:hover{
+  border-color: rgb(4, 7, 185);  
+}
+
+
+.box {  
+  flex: 0 0 300px;
+  background-color: #3498db;
+  color: #fff;  
+  border-radius: 5px;
+  flex: 2;
+  padding: 10px;
+  background-color: #242d35;
+  color: white;    
+  margin: 0 10px;
+  border: 1px solid #ddd;  
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  
+}
+.box:hover{
+  border-color: rgb(4, 7, 185);
+}
+
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 700px) {
+  .box-container {    
+    flex-wrap: wrap;
+    gap: 10px; /* Agrega espacio entre los elementos */   
+    justify-content: center;     
+       
+  }
+
+  .box {
+    flex: 5 5 calc(80.33% ); /* Ajusta el tamaño de los elementos */
+    margin-bottom: 1px; /* Agrega espacio entre los elementos */    
+  }
+
+  .box:nth-child(1) {
+    order: 1;
+    /* Cambia el orden a 1 */
+  }
+
+  .box:nth-child(2) {
+    order: 3;
+    /* Cambia el orden a 3 */
   }
   
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
+  .controllers{
+    display: none; /* Oculta los controles */
+  }
+}
+
+/* Estilos para la imagen dentro de la caja */
+.box img {
+  width: 100rem;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el párrafo dentro de la caja */
+.box p {
+  width: 100%;
+  margin: 0;
+  font-size: 17px;
+}
+
+
+
+
+.prev-button,
+.next-button {
+  background-color: rgba(13, 97, 252, 0.678);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 0;
+}
+
+.next-button {
+  right: 0;
+}
+.prev-button:hover {
+ background-color: rgb(62, 127, 248);
+ 
+}
+
+.next-button:hover {
+  background-color: rgb(62, 127, 248);
+}
+
+/* Estilos para dimensiones mayores de 700px */
+@media screen and (min-width: 701px) {
+  .box-container {
+    display: flex;
+    overflow-x: scroll;   
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;   
   }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+  .box {
+      flex: 0 0 180px; /* Cambia el ancho de las cajas */
+      font-size: 18px; /* Cambia el tamaño de fuente */
   }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
+
+  .controllers{
+    display: flex;
+    justify-content: space-between; /* Distribuye los botones en ambos lados */
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+    transform: translateY(-10em);
   }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  button[type="submit"]:focus {
-    outline: none;
-  }
-  
+
+  /* Otros estilos específicos para pantallas mayores de 700px */
+}
